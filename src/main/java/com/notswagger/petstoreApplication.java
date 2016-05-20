@@ -3,6 +3,7 @@ package com.notswagger;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import io.swagger.api.PetsApi;
 
 public class petstoreApplication extends Application<petstoreConfiguration> {
 
@@ -23,7 +24,8 @@ public class petstoreApplication extends Application<petstoreConfiguration> {
     @Override
     public void run(final petstoreConfiguration configuration,
                     final Environment environment) {
-        // TODO: implement application
+        // Wire up the api resource class here
+        environment.jersey().register(PetsApi.class);
     }
 
 }
